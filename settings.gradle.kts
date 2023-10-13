@@ -1,1 +1,1 @@
-rootProject.name = "supplies-wiki"
+rootProject.name = "Supplies-Wiki"
