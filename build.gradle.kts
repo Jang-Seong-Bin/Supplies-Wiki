@@ -20,8 +20,8 @@ repositories {
 	mavenCentral()
 }
 
-extra["snippetsDir"] = file("build/generated-snippets")
-extra["springCloudVersion"] = "2022.0.4"
+val snippetsDir by extra { file("build/generated-snippets") }
+val springCloudVersion by extra { "2022.0.4" }
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
@@ -59,5 +59,5 @@ tasks.test {
 
 tasks.asciidoctor {
 	inputs.dir(snippetsDir)
-	dependsOn(test)
+	dependsOn(tasks.test)
 }
