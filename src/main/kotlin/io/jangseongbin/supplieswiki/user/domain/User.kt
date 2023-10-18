@@ -20,5 +20,5 @@ class User(
 
     val createdAt: LocalDateTime,
 
-    val updatedAt: LocalDateTime,
+    var updatedAt: LocalDateTime,
 )
