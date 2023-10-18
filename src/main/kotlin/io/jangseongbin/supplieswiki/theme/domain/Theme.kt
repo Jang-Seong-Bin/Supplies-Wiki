@@ -16,7 +16,7 @@ import org.springframework.data.annotation.LastModifiedDate
 class Theme(
     @Id
     @GeneratedValue(strategy = AUTO)
-    val id: Long,
+    val id: Long = 0,
 
     val name: String,
 
