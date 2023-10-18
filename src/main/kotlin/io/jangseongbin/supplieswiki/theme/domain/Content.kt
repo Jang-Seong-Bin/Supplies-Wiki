@@ -2,6 +2,7 @@ package io.jangseongbin.supplieswiki.theme.domain
 
 import jakarta.persistence.Embeddable
 import java.time.LocalDateTime
+import java.time.LocalDateTime.now
 import org.springframework.data.annotation.CreatedDate
 
 @Embeddable
@@ -11,5 +12,5 @@ class Content(
     val contents: String,
 
     @CreatedDate
-    val createdAt: LocalDateTime,
+    val createdAt: LocalDateTime = now(),
 )

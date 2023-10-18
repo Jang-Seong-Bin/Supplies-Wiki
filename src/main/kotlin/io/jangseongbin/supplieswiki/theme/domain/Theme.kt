@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType.AUTO
 import jakarta.persistence.Id
 import java.time.LocalDateTime
+import java.time.LocalDateTime.now
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
 
@@ -28,8 +29,8 @@ class Theme(
     val contents: List<Content>,
 
     @CreatedDate
-    val createdAt: LocalDateTime,
+    val createdAt: LocalDateTime = now(),
 
     @LastModifiedDate
-    val updatedAt: LocalDateTime,
+    val updatedAt: LocalDateTime? = null,
 )
