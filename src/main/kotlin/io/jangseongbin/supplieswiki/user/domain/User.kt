@@ -7,12 +7,13 @@ import jakarta.persistence.Id
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
 import java.time.LocalDateTime
+import java.time.LocalDateTime.now
 
 @Entity
 class User(
     @Id
     @GeneratedValue(strategy = AUTO)
-    val id: Long,
+    val id: Long = 0,
 
     val loginId: String,
 
@@ -21,8 +22,8 @@ class User(
     var password: String,
 
     @CreatedDate
-    val createdAt: LocalDateTime,
+    val createdAt: LocalDateTime = now(),
 
     @LastModifiedDate
-    val updatedAt: LocalDateTime,
+    val updatedAt: LocalDateTime? = null,
 )
