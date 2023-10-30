@@ -1,0 +1,15 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
+
+jwt:
+  secret: T0yiFsvQtrzh50zv4tyWUMRdtIQF3QtY
+  header: Authorization
+  issuer: JangSeongBin
+  access-token-expire-minute: 10
+  refresh-token-expire-minute: 120
+
+internal:
+  api:
+    secret: internal-key
