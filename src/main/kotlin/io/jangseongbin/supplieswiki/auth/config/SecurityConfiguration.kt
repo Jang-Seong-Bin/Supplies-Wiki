@@ -1,11 +1,8 @@
 package io.jangseongbin.supplieswiki.auth.config
 
-import io.jangseongbin.supplieswiki.auth.filter.InternalKeyFilter
-import io.jangseongbin.supplieswiki.auth.filter.InternalKeyManager
 import io.jangseongbin.supplieswiki.auth.filter.JwtFilter
 import io.jangseongbin.supplieswiki.auth.handler.JwtAccessDeniedHandler
 import io.jangseongbin.supplieswiki.auth.handler.JwtAuthenticationEntryPoint
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpMethod.GET
@@ -50,12 +47,8 @@ class SecurityConfiguration(
         }
         .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
         .addFilterBefore(
-            InternalKeyFilter(InternalKeyManager(internalApiSecret)),
-            UsernamePasswordAuthenticationFilter::class.java,
-        )
-        .addFilterBefore(
             JwtFilter(jwtConfiguration),
-            InternalKeyFilter::class.java,
+            UsernamePasswordAuthenticationFilter::class.java,
         )
         .build()!!
 
