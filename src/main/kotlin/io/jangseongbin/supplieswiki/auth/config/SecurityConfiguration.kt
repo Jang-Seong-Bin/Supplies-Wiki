@@ -22,9 +22,6 @@ class SecurityConfiguration(
     private val jwtAuthenticationEntryPoint: JwtAuthenticationEntryPoint,
 
     private val jwtAccessDeniedHandler: JwtAccessDeniedHandler,
-
-    @Value("\${internal.api.secret}")
-    private val internalApiSecret: String,
 ) {
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain = http

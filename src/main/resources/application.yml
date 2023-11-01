@@ -4,7 +4,3 @@ jwt:
   issuer: JangSeongBin
   access-token-expire-minute: 10
   refresh-token-expire-minute: 120
-
-internal:
-  api:
-    secret: internal-key
