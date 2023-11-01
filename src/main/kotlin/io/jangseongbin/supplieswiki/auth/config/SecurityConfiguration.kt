@@ -1,7 +1,6 @@
 package io.jangseongbin.supplieswiki.auth.config
 
 import io.jangseongbin.supplieswiki.auth.filter.JwtFilter
-import io.jangseongbin.supplieswiki.auth.handler.JwtAccessDeniedHandler
 import io.jangseongbin.supplieswiki.auth.handler.JwtAuthenticationEntryPoint
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -20,8 +19,6 @@ class SecurityConfiguration(
     private val jwtConfiguration: JwtConfiguration,
 
     private val jwtAuthenticationEntryPoint: JwtAuthenticationEntryPoint,
-
-    private val jwtAccessDeniedHandler: JwtAccessDeniedHandler,
 ) {
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain = http
@@ -29,7 +26,6 @@ class SecurityConfiguration(
         .httpBasic { it.disable() }
         .exceptionHandling {
             it.authenticationEntryPoint(jwtAuthenticationEntryPoint)
-            it.accessDeniedHandler(jwtAccessDeniedHandler)
         }
         .authorizeHttpRequests { authorizeRequests ->
             authorizeRequests
