@@ -22,6 +22,8 @@ repositories {
 
 val snippetsDir by extra { file("build/generated-snippets") }
 val springCloudVersion by extra { "2022.0.4" }
+val kotestVersion = "5.6.1"
+val kotestExtensionsVersion = "1.1.3"
 
 dependencies {
 	api ("com.auth0:java-jwt:4.4.0")
@@ -36,6 +38,10 @@ dependencies {
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
+	testImplementation("io.kotest.extensions:kotest-extensions-spring:$kotestExtensionsVersion")
+	testImplementation("io.kotest:kotest-assertions-core-jvm:$kotestVersion")
+	testImplementation("io.kotest:kotest-property-jvm:$kotestVersion")
+	testImplementation("io.kotest:kotest-runner-junit5-jvm:$kotestVersion")
 }
 
 dependencyManagement {
