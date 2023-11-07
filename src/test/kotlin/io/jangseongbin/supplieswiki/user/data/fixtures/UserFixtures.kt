@@ -1,13 +1,11 @@
-package io.jangseongbin.supplieswiki.user.domain.fixtures
+package io.jangseongbin.supplieswiki.user.data.fixtures
 
-import io.jangseongbin.supplieswiki.user.domain.SignUp
-import io.jangseongbin.supplieswiki.user.domain.User
+import io.jangseongbin.supplieswiki.user.data.SignUp
+import io.jangseongbin.supplieswiki.user.data.User
 
 fun signUp(
     loginId: String,
-
     nickname: String,
-
     password: String,
 ): SignUp {
     return SignUp(

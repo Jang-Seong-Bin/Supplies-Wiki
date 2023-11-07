@@ -1,4 +1,4 @@
-package io.jangseongbin.supplieswiki.user.domain
+package io.jangseongbin.supplieswiki.user.data
 
 import jakarta.persistence.Embedded
 import jakarta.persistence.Entity

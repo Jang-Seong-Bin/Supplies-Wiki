@@ -1,4 +1,4 @@
-package io.jangseongbin.supplieswiki.user.domain
+package io.jangseongbin.supplieswiki.user.data
 
 class SignUp(
     val loginId: String,

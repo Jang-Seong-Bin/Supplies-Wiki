@@ -1,7 +1,7 @@
-package io.jangseongbin.supplieswiki.user.domain
+package io.jangseongbin.supplieswiki.user.data
 
-import io.jangseongbin.supplieswiki.user.domain.fixtures.signUp
-import io.jangseongbin.supplieswiki.user.domain.fixtures.user
+import io.jangseongbin.supplieswiki.user.data.fixtures.signUp
+import io.jangseongbin.supplieswiki.user.data.fixtures.user
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
