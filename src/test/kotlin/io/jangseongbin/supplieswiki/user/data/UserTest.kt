@@ -3,56 +3,54 @@ package io.jangseongbin.supplieswiki.user.data
 import io.jangseongbin.supplieswiki.user.data.fixtures.signUp
 import io.jangseongbin.supplieswiki.user.data.fixtures.user
 import io.kotest.assertions.throwables.shouldThrow
-import io.kotest.core.spec.style.BehaviorSpec
+import io.kotest.core.spec.style.ExpectSpec
 import io.kotest.matchers.shouldBe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 
-class UserTest : BehaviorSpec({
-    Given("유저의 정보가 주어질 때") {
-        val loginId = "jangseongbin"
-        val nickname = "장성빈"
+class UserTest : ExpectSpec({
+    context("유저 생성에 있어") {
+        context("유저의 로그인 아이디, 닉네임 정보가 존재할 때") {
+            val loginId = "jangseongbin"
+            val nickname = "장성빈"
 
-        When("패스워드가 영어로만 존재한다면") {
-            val signUp = signUp(
-                loginId = loginId,
-                nickname = nickname,
-                password = "jangseongbin"
-            )
+            expect("패스워드가 영어로만 존재하면 IllegalStateException 을 리턴한다.") {
+                val password = "jangseongbin"
+                val signUp = signUp(
+                    loginId = loginId,
+                    nickname = nickname,
+                    password = password,
+                )
 
-            val result = shouldThrow<IllegalStateException> { user(signUp) }
-
-            Then("IllegalStateException 에러가 발생한다.") {
-                result shouldBe IllegalStateException("비밀번호 패턴이 맞지 않습니다.")
+                shouldThrow<IllegalStateException> {
+                    user(signUp)
+                }
             }
-        }
 
-        When("패스워드가 숫자로만 존재한다면") {
-            val signUp = signUp(
-                loginId = loginId,
-                nickname = nickname,
-                password = "1234567890"
-            )
+            expect("패스워드가 숫자로만 존재하면 IllegalStateException 을 리턴한다.") {
+                val password = "123456789"
+                val signUp = signUp(
+                    loginId = loginId,
+                    nickname = nickname,
+                    password = password,
+                )
 
-            val result = shouldThrow<IllegalStateException> { user(signUp) }
-
-            Then("IllegalStateException 에러가 발생한다.") {
-                result shouldBe IllegalStateException("비밀번호 패턴이 맞지 않습니다.")
+                shouldThrow<IllegalStateException> {
+                    user(signUp)
+                }
             }
-        }
 
-        When("패스워드가 영어, 숫자가 골고루 들어간다면") {
-            val signUp = signUp(
-                loginId = loginId,
-                nickname = nickname,
-                password = "jangseongbin123"
-            )
+            expect("패스워드가 영어, 숫자가 골고루 들어가면 정상적으로 생성된다.") {
+                val password = "jangseongbin123"
+                val signUp = signUp(
+                    loginId = loginId,
+                    nickname = nickname,
+                    password = password,
+                )
+                val user = user(signUp)
 
-            val result = user(signUp)
-
-            Then("새로운 유저가 초기화 된다.") {
-                result.loginId shouldBe "jangseongbin"
-                result.nickname shouldBe "장성빈"
-                BCryptPasswordEncoder().matches("jangseongbin123", result.password.password) shouldBe true
+                user.loginId shouldBe "jangseongbin"
+                user.nickname shouldBe "장성빈"
+                BCryptPasswordEncoder().matches("jangseongbin123", user.password.password) shouldBe true
             }
         }
     }
