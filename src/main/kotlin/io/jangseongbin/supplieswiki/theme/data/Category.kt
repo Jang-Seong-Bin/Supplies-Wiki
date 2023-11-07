@@ -1,16 +1,18 @@
-package io.jangseongbin.supplieswiki.theme.domain
+package io.jangseongbin.supplieswiki.theme.data
 
 import jakarta.persistence.Embeddable
 import java.time.LocalDateTime
 import java.time.LocalDateTime.now
 import org.springframework.data.annotation.CreatedDate
+import org.springframework.data.annotation.LastModifiedDate
 
 @Embeddable
-class Content(
-    val userId: Long,
-
-    val contents: String,
+class Category(
+    val name: String,
 
     @CreatedDate
     val createdAt: LocalDateTime = now(),
+
+    @LastModifiedDate
+    val updatedAt: LocalDateTime? = null,
 )
