@@ -1,4 +1,4 @@
-package io.jangseongbin.supplieswiki.theme.domain
+package io.jangseongbin.supplieswiki.theme.data
 
 import jakarta.persistence.CollectionTable
 import jakarta.persistence.ElementCollection
