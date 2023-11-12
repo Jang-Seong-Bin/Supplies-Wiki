@@ -1,13 +1,11 @@
 package io.jangseongbin.supplieswiki.theme.service
 
 import io.jangseongbin.supplieswiki.Fixture
-import io.jangseongbin.supplieswiki.theme.data.Category
 import io.jangseongbin.supplieswiki.theme.data.ThemeRepository
 import io.jangseongbin.supplieswiki.theme.request.CreateTheme
+import io.jangseongbin.supplieswiki.theme.request.CreateThemeRequest
 import io.kotest.core.spec.style.BehaviorSpec
-import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 
 class ThemeServiceTest(
     private val themeRepository: ThemeRepository,
@@ -19,14 +17,14 @@ class ThemeServiceTest(
             val user = Fixture.user(updated = true)
 
             `when`("테마 정보 입력란에") {
-                val request = CreateTheme(
+                val request = CreateThemeRequest(
                     themeName = "swim",
                     userId = user.id,
                     contents = listOf(Fixture.content(userId = user.id)),
                     category = listOf(Fixture.category()),
                 )
                 and("정보를 기입하고 테마 등록 버튼을 누르면") {
-                    themeService.createTheme(request)
+                    themeService.createTheme(CreateTheme(request))
 
                     then("새로운 테마가 생성된다.") {
                         val themes = themeRepository.findAll()
@@ -41,14 +39,14 @@ class ThemeServiceTest(
                 and("이미 존재하는 테마를 기입하고 등록 버튼을 누르면") {
                     themeService.createTheme(request)
 
-                    val sameRequest = CreateTheme(
+                    val sameRequest = CreateThemeRequest(
                         themeName = "swim",
                         userId = user.id,
                         contents = listOf(Fixture.content(userId = user.id)),
                         category = listOf(Fixture.category()),
                     )
 
-                    themeService.createTheme(sameRequest)
+                    themeService.createTheme(CreateTheme(sameRequest))
 
                     then("버전 업 되어 중복으로 생성된다") {
                         val themes = themeRepository.findAllByName("swim")
