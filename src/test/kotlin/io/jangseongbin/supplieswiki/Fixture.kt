@@ -12,7 +12,7 @@ object Fixture {
         id = Arb.long(min = 1).single(),
         nickname = Arb.string(5..20).single(),
         loginId = Arb.string(3..10).single() + Arb.long(range = 1L .. 10000).single(),
-        password = Password( Arb.stringPattern("([a-zA-Z0-9]{8,20})").single()),
+        password = Password("jangseongbin123"),
         createdAt = createdAt,
         updatedAt = if (updated) Arb.localDateTime(minLocalDateTime = createdAt).single() else null,
     )
