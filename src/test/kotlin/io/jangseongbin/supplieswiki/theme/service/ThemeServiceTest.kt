@@ -1,7 +1,7 @@
 package io.jangseongbin.supplieswiki.theme.service
 
 import io.jangseongbin.supplieswiki.Fixture
-import io.jangseongbin.supplieswiki.theme.data.ThemeRepository
+import io.jangseongbin.supplieswiki.theme.infrastructure.ThemeRepository
 import io.jangseongbin.supplieswiki.theme.request.CreateTheme
 import io.jangseongbin.supplieswiki.theme.request.CreateThemeRequest
 import io.kotest.core.spec.style.BehaviorSpec

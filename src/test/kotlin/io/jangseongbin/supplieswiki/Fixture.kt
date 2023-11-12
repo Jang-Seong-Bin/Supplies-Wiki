@@ -1,7 +1,7 @@
 package io.jangseongbin.supplieswiki
 
-import io.jangseongbin.supplieswiki.theme.data.Category
-import io.jangseongbin.supplieswiki.theme.data.Content
+import io.jangseongbin.supplieswiki.theme.infrastructure.Category
+import io.jangseongbin.supplieswiki.theme.infrastructure.Content
 import io.jangseongbin.supplieswiki.user.domain.User
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.*
