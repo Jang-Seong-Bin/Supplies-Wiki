@@ -1,6 +1,6 @@
-package io.jangseongbin.supplieswiki.user.data
+package io.jangseongbin.supplieswiki.user.infrastructure
 
-import io.jangseongbin.supplieswiki.user.data.fixtures.password
+import io.jangseongbin.supplieswiki.user.infrastructure.fixtures.password
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.ExpectSpec
 import io.kotest.matchers.shouldBe

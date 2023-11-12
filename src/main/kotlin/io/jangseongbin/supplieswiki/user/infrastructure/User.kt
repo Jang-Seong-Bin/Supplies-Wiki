@@ -1,6 +1,5 @@
-package io.jangseongbin.supplieswiki.user.data
+package io.jangseongbin.supplieswiki.user.infrastructure
 
-import jakarta.persistence.Embedded
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType.AUTO
@@ -20,8 +19,7 @@ class User(
 
     val nickname: String,
 
-    @Embedded
-    val password: Password,
+    val password: String,
 
     @CreatedDate
     val createdAt: LocalDateTime = now(),
@@ -32,6 +30,6 @@ class User(
     constructor(signUp: SignUp) : this(
         loginId = signUp.loginId,
         nickname = signUp.nickname,
-        password = Password(signUp.password),
+        password = Password(signUp.password).password,
     )
 }
