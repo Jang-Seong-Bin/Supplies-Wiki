@@ -1,13 +1,14 @@
-package io.jangseongbin.supplieswiki.user.domain
+package io.jangseongbin.supplieswiki.user.data
 
+import jakarta.persistence.Embedded
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType.AUTO
 import jakarta.persistence.Id
-import org.springframework.data.annotation.CreatedDate
-import org.springframework.data.annotation.LastModifiedDate
 import java.time.LocalDateTime
 import java.time.LocalDateTime.now
+import org.springframework.data.annotation.CreatedDate
+import org.springframework.data.annotation.LastModifiedDate
 
 @Entity
 class User(
@@ -19,11 +20,18 @@ class User(
 
     val nickname: String,
 
-    var password: String,
+    @Embedded
+    val password: Password,
 
     @CreatedDate
     val createdAt: LocalDateTime = now(),
 
     @LastModifiedDate
     val updatedAt: LocalDateTime? = null,
-)
+) {
+    constructor(signUp: SignUp) : this(
+        loginId = signUp.loginId,
+        nickname = signUp.nickname,
+        password = Password(signUp.password),
+    )
+}
