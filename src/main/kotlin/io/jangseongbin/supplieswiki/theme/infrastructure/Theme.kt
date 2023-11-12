@@ -20,9 +20,7 @@ class Theme(
 
     val name: String,
 
-    @CollectionTable
-    @ElementCollection(fetch = EAGER)
-    val categories: List<Category>,
+    val category: String,
 
     @CollectionTable
     @ElementCollection(fetch = EAGER)
