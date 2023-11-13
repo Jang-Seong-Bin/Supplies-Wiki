@@ -15,7 +15,7 @@ class ThemeService(
         val theme = Theme(
             name = request.name,
             category = request.category,
-            contents = request.contents
+            contents = request.contents,
         )
 
         return themeRepository.save(theme)
