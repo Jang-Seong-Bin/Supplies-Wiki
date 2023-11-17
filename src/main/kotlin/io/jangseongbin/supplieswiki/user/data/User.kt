@@ -5,12 +5,14 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType.AUTO
 import jakarta.persistence.Id
+import jakarta.persistence.Table
 import java.time.LocalDateTime
 import java.time.LocalDateTime.now
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
 
 @Entity
+@Table(name = "Users")
 class User(
     @Id
     @GeneratedValue(strategy = AUTO)
