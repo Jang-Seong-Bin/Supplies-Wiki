@@ -1,6 +1,7 @@
 package io.jangseongbin.supplieswiki.theme.service
 
 import io.jangseongbin.supplieswiki.Fixture
+import io.jangseongbin.supplieswiki.theme.infrastructure.Category
 import io.jangseongbin.supplieswiki.theme.infrastructure.ThemeRepository
 import io.jangseongbin.supplieswiki.theme.request.CreateTheme
 import io.jangseongbin.supplieswiki.theme.request.CreateThemeRequest
@@ -24,7 +25,7 @@ class ThemeServiceTest(
                     name = "swim",
                     userId = user.id,
                     contents = listOf("첫번째 콘텐츠", "일곱번째 콘텐츠", "백만스물두번째 콘텐츠"),
-                    category = "sports",
+                    category = Category.SPORTS,
                 )
                 and("정보를 기입하고 테마 등록 버튼을 누르면") {
                     val input = CreateTheme(request)
@@ -44,7 +45,7 @@ class ThemeServiceTest(
                         name = "swim",
                         userId = user.id,
                         contents = listOf("전혀 다른 글", "새롭게 태어난 글", "따끈 따끈한 글"),
-                        category = "sports",
+                        category = Category.SPORTS,
                     )
 
                     themeService.createTheme(CreateTheme(sameRequest))

@@ -1,11 +1,12 @@
 package io.jangseongbin.supplieswiki.theme.request
 
+import io.jangseongbin.supplieswiki.theme.infrastructure.Category
 import io.jangseongbin.supplieswiki.theme.infrastructure.Content
 
 class CreateTheme(
     val name: String,
 
-    val category: String,
+    val category: Category,
 
     val contents: List<Content>,
 ) {
