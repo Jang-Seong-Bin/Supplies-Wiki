@@ -1,4 +1,4 @@
-package io.jangseongbin.supplieswiki.user.data
+package io.jangseongbin.supplieswiki.user.infrastructure
 
 import jakarta.persistence.Access
 import jakarta.persistence.AccessType.FIELD
