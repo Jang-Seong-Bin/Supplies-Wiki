@@ -1,7 +1,7 @@
 package io.jangseongbin.supplieswiki
 
-import io.jangseongbin.supplieswiki.user.data.Password
-import io.jangseongbin.supplieswiki.user.data.User
+import io.jangseongbin.supplieswiki.user.infrastructure.Password
+import io.jangseongbin.supplieswiki.user.infrastructure.User
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.*
 

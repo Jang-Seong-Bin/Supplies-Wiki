@@ -1,6 +1,5 @@
-package io.jangseongbin.supplieswiki.user.repository
+package io.jangseongbin.supplieswiki.user.infrastructure
 
-import io.jangseongbin.supplieswiki.user.data.User
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
