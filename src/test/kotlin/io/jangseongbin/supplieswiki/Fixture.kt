@@ -1,5 +1,9 @@
 package io.jangseongbin.supplieswiki
 
+import io.jangseongbin.supplieswiki.theme.infrastructure.Category
+import io.jangseongbin.supplieswiki.theme.infrastructure.Content
+import io.jangseongbin.supplieswiki.theme.request.CreateThemeRequest
+import io.jangseongbin.supplieswiki.theme.request.UpdateTheme
 import io.jangseongbin.supplieswiki.user.data.Password
 import io.jangseongbin.supplieswiki.user.data.User
 import io.kotest.property.Arb
@@ -15,5 +19,13 @@ object Fixture {
         password = Password("jangseongbin123"),
         createdAt = createdAt,
         updatedAt = if (updated) Arb.localDateTime(minLocalDateTime = createdAt).single() else null,
+    )
+
+    fun updateRequestForNotExistingTheme() = UpdateTheme(
+        themeId = -1,
+        content = Content(
+            userId = -1,
+            contents = "hello",
+        )
     )
 }
