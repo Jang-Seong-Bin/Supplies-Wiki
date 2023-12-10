@@ -12,7 +12,7 @@ import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 class User(
     @Id
     @GeneratedValue(strategy = AUTO)
